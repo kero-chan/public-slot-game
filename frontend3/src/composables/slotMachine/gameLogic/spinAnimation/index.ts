@@ -1,0 +1,8 @@
+export * from './types'
+export { buildReelStrips } from './reelStripBuilder'
+export { syncColumnToGrid, injectBackendGrid, injectBackendGridForColumn } from './gridSync'
+export { countBonusTilesInColumn, countTotalBonusTiles } from './bonusCounter'
+export { createSlowdownTween, checkAndActivateAnticipation, type AnticipationContext } from './anticipationHandler'
+export { createColumnTween, type TweenFactoryConfig } from './columnTweenFactory'
+export { createSpinCompletionHandler, type SpinCompletionHandler } from './spinCompletion'
+export { createSpinTimeline, type SpinTimelineParams } from './createSpinTimeline'

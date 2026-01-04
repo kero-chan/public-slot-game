@@ -1,0 +1,15 @@
+[
+  {
+    "origin": ["https://slot-kungfu-dev.kero.io", "https://slot-bamboo-dev.kero.io"],
+    "method": ["GET", "HEAD"],
+    "responseHeader": ["Content-Type", "Content-Length", "Cache-Control"],
+    "maxAgeSeconds": 86400
+  },
+  {
+    "origin": ["https://slot-admin-dev.kero.io", "https://slot-admin.kero.io"],
+    "method": ["GET", "PUT", "POST", "HEAD"],
+    "requestHeader": ["Content-Type", "Cache-Control"],
+    "responseHeader": ["Content-Type", "Content-Length", "Cache-Control", "x-goog-resumable"],
+    "maxAgeSeconds": 3600
+  }
+]

@@ -1,0 +1,62 @@
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE/Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.sublime-workspace
+*.sublime-project
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Backend (Go)
+backend/bin/
+backend/tmp/
+backend/server
+backend/*.exe
+backend/*.dll
+backend/*.so
+backend/*.dylib
+backend/vendor/
+backend/.env
+
+# Frontend (Node.js/Vite)
+frontend3/node_modules/
+frontend3/dist/
+frontend3/dist-ssr/
+frontend3/.env
+frontend3/coverage/
+frontend3/.cache/
+frontend3/*.tsbuildinfo
+
+# Docker
+*.pid
+*.seed
+*.pid.lock
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Claude
+.claude/

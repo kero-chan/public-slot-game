@@ -1,0 +1,26 @@
+.game-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent; // Background is rendered in PixiJS canvas
+  position: relative;
+  overflow: hidden;
+  pointer-events: none; // Allow clicks to pass through to PixiJS canvas
+}
+
+.gameView {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2; // Above PixiJS canvas (z-index: 1) but below modals
+  pointer-events: none; // Allow clicks to pass through to PixiJS canvas
+
+  /* Ensure canvas is positioned correctly when footer is open */
+  transition: transform 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+}

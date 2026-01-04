@@ -1,0 +1,49 @@
+{
+  "name": "slot-machine-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "type-check": "vue-tsc --noEmit",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@pixi/constants": "^7.4.3",
+    "@pixi/core": "^7.4.3",
+    "@pixi/filter-blur": "^7.4.3",
+    "@pixi/filter-glow": "^5.2.1",
+    "@vueuse/core": "^14.1.0",
+    "axios": "^1.6.2",
+    "gsap": "^3.13.0",
+    "howler": "^2.2.4",
+    "pinia": "^3.0.4",
+    "pinia-plugin-persistedstate": "^4.7.1",
+    "pixi-filters": "^6.1.4",
+    "pixi.js": "^8.14.0",
+    "vconsole": "^3.15.1",
+    "vue": "^3.5.22",
+    "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "@testing-library/user-event": "^14.6.1",
+    "@testing-library/vue": "^8.1.0",
+    "@types/howler": "^2.2.11",
+    "@types/node": "^24.10.1",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vitest/ui": "^3.2.4",
+    "@vue/test-utils": "^2.4.6",
+    "happy-dom": "^20.0.10",
+    "jsdom": "^27.0.1",
+    "sass": "^1.83.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.2",
+    "vitest": "^3.2.4",
+    "vue-tsc": "^3.1.4"
+  }
+}

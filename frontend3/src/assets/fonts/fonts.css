@@ -1,0 +1,8 @@
+/* Noto Sans SC - Chinese font for jackpot/win displays */
+@font-face {
+  font-family: 'Noto Sans SC';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('./NotoSansSC-Black.otf') format('opentype');
+}

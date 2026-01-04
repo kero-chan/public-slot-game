@@ -1,0 +1,254 @@
+.start-screen {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10; // Above PixiJS canvas (z-index: 1) but below other overlays
+  overflow: hidden;
+  background: transparent; // Background is rendered in PixiJS canvas
+  pointer-events: auto; // Allow clicks on start button
+}
+
+// .background-image class removed - background now rendered in PixiJS canvas
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Loading Section */
+.loading-container {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 60%;
+  max-width: 500px;
+}
+
+.progress-text {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.9),
+    0 0 20px rgba(255, 200, 100, 0.4);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  span {
+    display: inline-block;
+    background: linear-gradient(180deg, #fff 0%, #ffd700 50%, #ff9500 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+  }
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 16px;
+  background: linear-gradient(180deg, rgba(80, 40, 40, 0.6), rgba(40, 20, 20, 0.8));
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.5),
+    0 4px 12px rgba(0, 0, 0, 0.4);
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff6b4a 0%, #ff8c5a 25%, #ffaa6a 50%, #ff8c5a 75%, #ff6b4a 100%);
+  background-size: 200% 100%;
+  border-radius: 20px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 0 20px rgba(255, 107, 74, 0.6),
+    0 0 40px rgba(255, 107, 74, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  position: relative;
+  animation: shimmer 2s infinite linear;
+}
+
+.progress-bar-fill::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+  border-radius: 20px 20px 0 0;
+}
+
+.progress-bar-fill::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 60%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+  animation: shine 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes shine {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Start Button */
+.start-button-container {
+  position: absolute;
+  left: 50%;
+  bottom: 20%;
+  transform: translateX(-50%);
+  width: 40%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.start-button {
+  cursor: pointer;
+  width: 100%;
+  height: auto;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease,
+    opacity 0.2s ease;
+  filter: drop-shadow(0 0 15px rgba(255, 200, 100, 0.8))
+          drop-shadow(0 0 30px rgba(255, 150, 50, 0.5))
+          drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+  animation: button-pulse 2s ease-in-out infinite;
+}
+
+@keyframes button-pulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 15px rgba(255, 200, 100, 0.8))
+            drop-shadow(0 0 30px rgba(255, 150, 50, 0.5))
+            drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+  }
+  50% {
+    transform: scale(1.03);
+    filter: drop-shadow(0 0 20px rgba(255, 200, 100, 1))
+            drop-shadow(0 0 40px rgba(255, 150, 50, 0.7))
+            drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+  }
+}
+
+.start-button:hover:not(.button-loading) {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 25px rgba(255, 200, 100, 1))
+          drop-shadow(0 0 50px rgba(255, 150, 50, 0.8))
+          drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+  animation: none;
+}
+
+.start-button:active:not(.button-loading) {
+  transform: scale(0.98);
+  filter: drop-shadow(0 0 10px rgba(255, 200, 100, 0.6))
+          drop-shadow(0 0 20px rgba(255, 150, 50, 0.4))
+          drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+  animation: none;
+}
+
+.start-button.button-loading {
+  opacity: 0.6;
+  cursor: wait;
+  pointer-events: none;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid #ff6b4a;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  box-shadow: 0 0 12px rgba(255, 107, 74, 0.3);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.9),
+    0 0 15px rgba(255, 200, 100, 0.4);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #fff 0%, #ffd700 50%, #ff9500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
